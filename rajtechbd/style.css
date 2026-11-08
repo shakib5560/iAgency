@@ -1,0 +1,324 @@
+/*
+Theme Name: RajTech BD
+Theme URI: https://rajtechbd.com/
+Author: RajTech BD Engineering Team
+Author URI: https://rajtechbd.com/
+Description: A high-performance, minimalist corporate WordPress theme for software engineering, custom ERP platforms, sales development, and SEO. Includes full Gutenberg block editor optimization, responsive navbar, multi-page templates (About, Services, Case Studies, FAQ, Contact), and native zero-bloat architecture.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: rajtechbd
+Tags: block-patterns, custom-menu, featured-images, full-width-template, theme-options, threaded-comments, translation-ready, wide-blocks
+*/
+
+/* Core WordPress CSS Variables & Resets */
+:root {
+  --raj-navy: #0B1528;
+  --raj-navy-card: #132238;
+  --raj-navy-border: #1E3352;
+  --raj-slate-dark: #0F172A;
+  --raj-slate-body: #475569;
+  --raj-slate-muted: #94A3B8;
+  --raj-light-bg: #F8FAFC;
+  --raj-border: #E2E8F0;
+  --raj-amber: #F59E0B;
+  --raj-amber-hover: #D97706;
+  --raj-sky: #0284C7;
+  --raj-sky-light: #38BDF8;
+  --raj-font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --raj-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Base resets & typography */
+html {
+  font-family: var(--raj-font-sans);
+  scroll-behavior: smooth;
+  color: var(--raj-slate-dark);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--raj-font-sans);
+  color: #0F172A;
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+.font-mono-tag {
+  font-family: var(--raj-font-mono);
+}
+
+/* ================= WordPress Block Editor (Gutenberg) Compatibility ================= */
+.alignwide {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignfull {
+  max-width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.alignleft {
+  float: left;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.alignright {
+  float: right;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Block Content Typography inside .entry-content */
+.entry-content {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: #334155;
+}
+
+.entry-content h1, 
+.entry-content h2, 
+.entry-content h3, 
+.entry-content h4, 
+.entry-content h5, 
+.entry-content h6 {
+  color: #0F172A;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+.entry-content h1 { font-size: 2.25rem; }
+.entry-content h2 { font-size: 1.875rem; border-bottom: 1px solid #F1F5F9; padding-bottom: 0.5rem; }
+.entry-content h3 { font-size: 1.5rem; }
+.entry-content h4 { font-size: 1.25rem; }
+
+.entry-content p {
+  margin-bottom: 1.5rem;
+}
+
+.entry-content a {
+  color: var(--raj-sky);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.entry-content a:hover {
+  color: #0369a1;
+}
+
+.entry-content ul, 
+.entry-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.75rem;
+}
+
+.entry-content ul { list-style-type: disc; }
+.entry-content ol { list-style-type: decimal; }
+
+.entry-content li {
+  margin-bottom: 0.5rem;
+}
+
+.entry-content blockquote {
+  border-left: 4px solid var(--raj-amber);
+  background-color: var(--raj-light-bg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic;
+  color: #1E293B;
+}
+
+.entry-content pre, 
+.entry-content code {
+  font-family: var(--raj-font-mono);
+  font-size: 0.9em;
+}
+
+.entry-content pre {
+  background-color: #0B1528;
+  color: #E2E8F0;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border: 1px solid #1E3352;
+}
+
+.entry-content :not(pre) > code {
+  background-color: #F1F5F9;
+  color: #0F172A;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+.entry-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.entry-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.entry-content th, 
+.entry-content td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--raj-border);
+  text-align: left;
+}
+
+.entry-content th {
+  background-color: var(--raj-light-bg);
+  font-weight: 600;
+  color: var(--raj-slate-dark);
+}
+
+/* ================= Minimalist Animations & Custom Theme Helpers ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.12);
+}
+
+.dark-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: #38BDF8;
+  box-shadow: 0 16px 36px -10px rgba(56, 189, 248, 0.18);
+}
+
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+}
+
+.bg-grid-pattern-dark {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(30, 51, 82, 0.45) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 51, 82, 0.45) 1px, transparent 1px);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
+}
+
+.pulse-dot {
+  animation: pulseGlow 2.2s infinite ease-in-out;
+}
+
+/* FAQ Accordion Styling */
+.faq-item {
+  border: 1px solid #E2E8F0;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item.active {
+  border-color: #0284C7;
+  box-shadow: 0 4px 12px -2px rgba(2, 132, 199, 0.08);
+}
+
+.faq-header {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 700;
+  color: #0F172A;
+  transition: color 0.2s ease;
+}
+
+.faq-header:hover {
+  color: #0284C7;
+}
+
+.faq-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: #F1F5F9;
+  transition: transform 0.3s ease, background-color 0.2s ease;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+  background-color: #0284C7;
+  color: #ffffff;
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0, 1, 0, 1), padding 0.35s ease;
+  padding: 0 1.5rem;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.faq-item.active .faq-body {
+  max-height: 1000px;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  transition: max-height 0.45s cubic-bezier(0.9, 0, 0.8, 0.2), padding 0.25s ease;
+}

@@ -1,0 +1,358 @@
+/**
+ * RajTech BD - Modern Corporate Theme Styles
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Reset and Core Variables */
+:root {
+  --raj-navy: #0B1528;
+  --raj-navy-card: #132238;
+  --raj-navy-border: #1E3352;
+  --raj-slate-dark: #0F172A;
+  --raj-slate-body: #475569;
+  --raj-slate-muted: #94A3B8;
+  --raj-light-bg: #F8FAFC;
+  --raj-border: #E2E8F0;
+  --raj-amber: #F59E0B;
+  --raj-amber-hover: #D97706;
+  --raj-sky: #0284C7;
+  --raj-sky-light: #38BDF8;
+  --raj-font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --raj-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+body {
+  font-family: var(--raj-font-sans);
+  color: var(--raj-slate-dark);
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono-tag {
+  font-family: var(--raj-font-mono);
+}
+
+/* Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.12);
+}
+
+.dark-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: #38BDF8;
+  box-shadow: 0 16px 36px -10px rgba(56, 189, 248, 0.18);
+}
+
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+}
+
+.bg-grid-pattern-dark {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(30, 51, 82, 0.45) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 51, 82, 0.45) 1px, transparent 1px);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
+}
+
+.pulse-dot {
+  animation: pulseGlow 2.2s infinite ease-in-out;
+}
+
+/* Navigation & Submenu Styling */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.85rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  position: relative;
+  padding: 1.25rem 0;
+}
+
+.nav-menu a {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu .current-menu-item > a {
+  color: #0F172A;
+}
+
+.nav-menu .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.12);
+  border-radius: 0.5rem;
+  min-width: 250px;
+  padding: 0.5rem 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 999;
+}
+
+.nav-menu li:hover > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-menu .sub-menu li {
+  padding: 0;
+}
+
+.nav-menu .sub-menu li a {
+  display: block;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #334155;
+  transition: all 0.15s ease;
+}
+
+.nav-menu .sub-menu li a:hover {
+  background-color: #F8FAFC;
+  color: #0284C7;
+  padding-left: 1.5rem;
+}
+
+/* Mobile Nav Drawer */
+.mobile-nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobile-nav-menu a {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0F172A;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.mobile-nav-menu a:hover {
+  color: #0284C7;
+}
+
+/* Contact Form Input Styling */
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid #CBD5E1;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #0F172A;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  outline: none;
+  border-color: #0284C7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+/* WordPress Admin Bar Compatibility for Sticky Header */
+.admin-bar header.sticky {
+  top: 32px !important;
+}
+
+@media screen and (max-width: 782px) {
+  .admin-bar header.sticky {
+    top: 46px !important;
+  }
+}
+
+/* Accessibility: Hide Screen Reader Text */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+/* WordPress Pagination (Prevents 'Next ->' text wrapping into two lines) */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 3.5rem;
+  width: 100%;
+}
+
+.pagination .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pagination .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  width: auto;
+  height: 2.75rem;
+  padding: 0 0.85rem;
+  border-radius: 0.375rem;
+  border: 1px solid #CBD5E1;
+  background-color: #ffffff;
+  color: #0F172A;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+}
+
+.pagination .page-numbers.prev,
+.pagination .page-numbers.next {
+  padding: 0 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.pagination .page-numbers:hover,
+.pagination .page-numbers.current {
+  background-color: #0B1528;
+  color: #ffffff;
+  border-color: #0B1528;
+  box-shadow: 0 4px 12px rgba(11, 21, 40, 0.15);
+}
+
+/* Elementor Full Width Canvas & Container Compatibility */
+.elementor-content-wrap,
+.elementor-page .site-main,
+.elementor-section-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ================= RESPONSIVE VIEWPORT & OVERFLOW CONTROL ================= */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Smooth Horizontal Touch Scrolling for Data Tables on Mobile & Tablet */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ================= MOBILE VIEW OPTIMIZATIONS (< 768px) ================= */
+@media (max-width: 767px) {
+  /* Forms: Ensure 16px font-size to prevent iOS Safari auto-zoom on focus */
+  .form-input, .form-textarea, .form-select {
+    font-size: 16px !important;
+  }
+
+  /* Prevent long title overflows */
+  h1, h2, h3 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Navbar: Keep header height compact on phones */
+  header .max-w-\[1280px\] {
+    height: 4.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Floating WhatsApp button safe area on modern phones with home indicator */
+  aside[aria-label="WhatsApp Quick Support"] {
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    right: 1rem;
+  }
+
+  /* Hero & Section padding adjustments */
+  section {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+}
+
+/* ================= TABLET VIEW OPTIMIZATIONS (768px - 1023px) ================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet Navigation Drawer & spacing */
+  .nav-menu {
+    gap: 1.25rem;
+  }
+  
+  /* Bento grid balanced proportions on iPads and tablets */
+  .lg\:grid-cols-12 {
+    gap: 2rem;
+  }
+}
+

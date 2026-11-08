@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="avatarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1528"/>
+      <stop offset="50%" stop-color="#132238"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#avatarBg)"/>
+  
+  <!-- Subtle Grid Lines -->
+  <path d="M0 100 H400 M0 200 H400 M0 300 H400 M100 0 V400 M200 0 V400 M300 0 V400" stroke="#1E3352" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+  
+  <!-- UI Developer Icon / Silhouette -->
+  <g transform="translate(100, 80)">
+    <!-- Head -->
+    <circle cx="100" cy="70" r="50" fill="#38BDF8" opacity="0.9"/>
+    <!-- Glasses -->
+    <rect x="75" y="60" width="22" height="15" rx="3" fill="#0B1528" stroke="#F8FAFC" stroke-width="3"/>
+    <rect x="103" y="60" width="22" height="15" rx="3" fill="#0B1528" stroke="#F8FAFC" stroke-width="3"/>
+    <line x1="97" y1="67" x2="103" y2="67" stroke="#F8FAFC" stroke-width="3"/>
+    <!-- Shoulders -->
+    <path d="M30 190 C30 145 70 135 100 135 C130 135 170 145 170 190 Z" fill="#F8FAFC" opacity="0.85"/>
+  </g>
+
+  <!-- Front-end UI code symbol badge -->
+  <g transform="translate(130, 290)">
+    <rect width="140" height="42" rx="8" fill="#0F172A" stroke="#38BDF8" stroke-width="1.5"/>
+    <text x="70" y="26" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="bold" text-anchor="middle">&lt;UI / UX&gt;</text>
+  </g>
+</svg>
