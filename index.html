@@ -168,9 +168,162 @@
     .pulse-dot {
       animation: pulseGlow 2.2s infinite ease-in-out;
     }
+
+    /* ================= MINIMALIST WHITE GLOSSY PRELOADER ================= */
+    #rajtech-preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.99), rgba(248, 250, 252, 0.96) 60%, rgba(241, 245, 249, 0.94) 100%);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    #rajtech-preloader.preloader-hidden {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: scale(0.985);
+    }
+
+    .preloader-glossy-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.25rem 2.75rem;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.6) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: 1.25rem;
+      box-shadow: 
+        0 25px 50px -12px rgba(15, 23, 42, 0.07),
+        0 0 0 1px rgba(226, 232, 240, 0.7),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 1);
+    }
+
+    .preloader-glossy-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 1), transparent);
+    }
+
+    .preloader-track {
+      width: 100%;
+      max-width: 200px;
+      height: 4px;
+      background-color: #E2E8F0;
+      border-radius: 9999px;
+      overflow: hidden;
+      margin-top: 1.25rem;
+      position: relative;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
+    .preloader-bar {
+      height: 100%;
+      width: 0%;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #0284C7 0%, #38BDF8 50%, #0284C7 100%);
+      background-size: 200% 100%;
+      animation: preloaderGradientShift 2s linear infinite;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.55);
+      transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes preloaderGradientShift {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
   </style>
 </head>
 <body class="bg-white text-[#0F172A] antialiased selection:bg-[#F59E0B] selection:text-[#0F172A]">
+
+  <!-- ================= MINIMALIST UNIVERSAL WHITE GLOSSY PRELOADER ================= -->
+  <div id="rajtech-preloader" class="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-white/95 backdrop-blur-2xl transition-all duration-500 ease-out" aria-label="Loading RajTech BD">
+    <div class="preloader-glossy-card">
+      <!-- Attached Brand Logo -->
+      <img src="https://rajtechbd.com/wp-content/uploads/2024/09/black-logo-1.png" 
+           alt="RajTech BD - Software Engineering" 
+           width="240" 
+           height="58" 
+           loading="eager" 
+           decoding="sync"
+           class="h-9 sm:h-10 md:h-11 w-auto max-w-[185px] sm:max-w-[220px] object-contain transition-transform" 
+           style="aspect-ratio: 300 / 72;"
+           onerror="this.onerror=null;this.src='rajtechbd/assets/images/black-logo-1.png';">
+
+      <!-- Minimalist Loading Progress Bar on Bottom Side of Logo -->
+      <div class="preloader-track" role="progressbar" aria-label="Page loading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div id="rajtech-progress-bar" class="preloader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Immediate Preloader Initialization Script -->
+  <script>
+  (function() {
+    var preloader = document.getElementById('rajtech-preloader');
+    var bar = document.getElementById('rajtech-progress-bar');
+    if (!preloader || !bar) return;
+
+    var progress = 14;
+    bar.style.width = progress + '%';
+    bar.parentElement.setAttribute('aria-valuenow', progress);
+
+    var timer = setInterval(function() {
+      if (progress < 82) {
+        progress += Math.floor(Math.random() * 12) + 6;
+        if (progress > 82) progress = 82;
+        bar.style.width = progress + '%';
+        bar.parentElement.setAttribute('aria-valuenow', progress);
+      }
+    }, 90);
+
+    function completeLoading() {
+      if (!preloader) return;
+      clearInterval(timer);
+      progress = 100;
+      bar.style.width = '100%';
+      bar.parentElement.setAttribute('aria-valuenow', 100);
+
+      setTimeout(function() {
+        preloader.classList.add('preloader-hidden');
+        setTimeout(function() {
+          preloader.style.display = 'none';
+        }, 500);
+      }, 240);
+    }
+
+    if (document.readyState === 'complete') {
+      completeLoading();
+    } else {
+      window.addEventListener('load', completeLoading);
+      document.addEventListener('DOMContentLoaded', function() {
+        if (progress < 65) {
+          progress = 65;
+          bar.style.width = '65%';
+          bar.parentElement.setAttribute('aria-valuenow', 65);
+        }
+      });
+    }
+
+    // Safety fallback: guaranteed to dismiss within 1.8s
+    setTimeout(completeLoading, 1800);
+  })();
+  </script>
 
   <!-- ================= 1. MINIMALIST STICKY HEADER ================= -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#F1F5F9] transition-all duration-300">
@@ -729,9 +882,12 @@
         <!-- Team Card 3 -->
         <div class="bg-[#F8FAFC] rounded-xl overflow-hidden border border-[#E2E8F0] hover-lift reveal delay-200">
           <div class="h-60 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" 
+            <img src="https://rajtechbd.com/wp-content/uploads/2026/11/office-scaled.jpeg" 
                  alt="Sales Development & SEO Strategists" 
-                 class="w-full h-full object-cover">
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-full object-cover"
+                 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80';">
             <div class="absolute top-3 left-3 bg-[#0B1528]/80 backdrop-blur-md px-3 py-1 rounded text-white text-xs font-mono-tag">
               Growth & SEO
             </div>

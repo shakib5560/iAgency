@@ -19,6 +19,7 @@ $faq_url          = esc_url( home_url( '/faq/' ) );
 $contact_url      = esc_url( home_url( '/contact/' ) );
 $privacy_url      = esc_url( home_url( '/privacy-policy/' ) );
 $terms_url        = esc_url( home_url( '/terms-and-conditions/' ) );
+$payment_url      = esc_url( home_url( '/payment-system/' ) );
 ?>
 
   <!-- ================= ENTERPRISE FOOTER ================= -->
@@ -87,6 +88,7 @@ $terms_url        = esc_url( home_url( '/terms-and-conditions/' ) );
             <li><a href="<?php echo $portfolio_url; ?>" class="hover:text-white transition-colors">Portfolio &amp; Case Studies</a></li>
             <li><a href="<?php echo $blog_url; ?>" class="hover:text-white transition-colors">Engineering Blog</a></li>
             <li><a href="<?php echo $faq_url; ?>" class="hover:text-white transition-colors">FAQ &amp; Knowledge Base</a></li>
+            <li><a href="<?php echo $payment_url; ?>" class="hover:text-white transition-colors">Payment Methods &amp; System</a></li>
             <li><a href="<?php echo $contact_url; ?>" class="hover:text-white transition-colors">Contact Office</a></li>
             <li><a href="<?php echo $privacy_url; ?>" class="hover:text-white transition-colors">Privacy Policy</a></li>
             <li><a href="<?php echo $terms_url; ?>" class="hover:text-white transition-colors">Terms &amp; Conditions</a></li>

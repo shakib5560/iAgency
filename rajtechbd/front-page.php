@@ -596,9 +596,12 @@ else :
         <!-- Team Card 3 -->
         <div class="bg-[#F8FAFC] rounded-xl overflow-hidden border border-[#E2E8F0] hover-lift reveal delay-200">
           <div class="h-60 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" 
+            <img src="https://rajtechbd.com/wp-content/uploads/2026/11/office-scaled.jpeg" 
                  alt="Sales Development & SEO Strategists" 
-                 class="w-full h-full object-cover">
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-full object-cover"
+                 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80';">
             <div class="absolute top-3 left-3 bg-[#0B1528]/80 backdrop-blur-md px-3 py-1 rounded text-white text-xs font-mono-tag">
               Growth &amp; SEO
             </div>

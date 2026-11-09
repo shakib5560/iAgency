@@ -1,5 +1,9 @@
 # RajTech BD Limited - Enterprise WordPress Theme (Elementor & Gutenberg Optimized)
 
+<div align="center">
+  <img src="screenshot.png" alt="iAgency - RajTech BD Limited WordPress Theme Thumbnail" width="100%" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" />
+</div>
+
 **RajTech BD Limited** is a premier corporate WordPress theme tailored for an experienced software engineering, custom ERP platforms, modern web development, and AI system development limited company in Dhaka, Bangladesh (Est. 2018).
 
 ---
@@ -45,6 +49,17 @@
 ### 6. Old-Fashioned Experienced Discipline + Cutting-Edge Modern AI
 - Blends **8+ years of battle-tested software engineering** (ACID relational concurrency, zero technical debt, direct Slack communication with principal architects) with **modern web engineering** and **AI system development** (autonomous agents, deterministic LLM pipelines, Next.js, sub-200ms TTFB).
 
+### 7. Dedicated Payment System Page Template (`page-payment-system.php`)
+- **Target URL**: `https://rajtechbd.com/payment-system/`
+- **Supported Payment Channels**:
+  1. **Visa**: Domestic & international credit/debit cards with 3D Secure 2.0 & multi-currency billing (BDT, USD, EUR, GBP).
+  2. **Corporate Bank Transfer**: Dutch-Bangla Bank Ltd (DBBL) corporate wire with NPSB (real-time), EFTN/BEFTN, RTGS (>৳1,00,000), and SWIFT wire (`DBBLBDDH`).
+  3. **bKash**: Merchant Payment (`01758522846`, Counter 1), QR payment, Personal, and USSD `*247#`.
+  4. **Rocket (DBBL)**: Biller/Merchant ID (`01758522846`), 12-digit account format, and USSD `*322#`.
+  5. **Nagad**: Postal Digital Financial Service Merchant (`01758522846`), Personal, and USSD `*167#`.
+  6. **Bank Cheque & Pay Order**: "Account Payee Only" corporate cheques drawn in favor of **RajTech BD Limited**, with physical handover at Kuril HQ, courier, or branch deposit.
+- **Features**: 1-click copy-to-clipboard for all account and routing numbers with toast alerts, category filtering tabs, 3-step billing protocol, real-time payment notification & verification form with `wp_mail` integration, TDS/VDS compliance guidelines, interactive FAQ accordion, and rich JSON-LD SEO schema (`WebPage`, `BreadcrumbList`, `FinancialService`, `FAQPage`).
+
 ---
 
 ## ⚡ Elementor & Gutenberg Compatibility
@@ -74,6 +89,7 @@ rajtechbd/
 ├── page-services.php                   # "Services & ERP" template with AI systems & Elementor support
 ├── page-case-studies.php               # "Case Studies" template
 ├── page-faq.php                        # "FAQ" template with accordion & JSON-LD
+├── page-payment-system.php             # "Payment System" template (Visa, Bank Wire, bKash, Rocket, Nagad, Cheque)
 ├── page-contact.php                    # "Contact Us" template with inquiry form
 ├── page-privacy-policy.php             # "Privacy Policy" template for RajTech BD Ltd.
 ├── page-terms.php                      # "Terms & Conditions" template for RajTech BD Ltd.
@@ -89,7 +105,8 @@ rajtechbd/
 │   ├── js/
 │   │   └── theme.js                    # Reveal animations, stat counters, accordion, drawer
 │   └── images/
-│       ├── rajtechbd-logo.svg          # Primary vector brand logo
+│       ├── black-logo-1.png            # Main brand logo (300x72)
+│       ├── rajtechbd-logo.svg          # Primary vector brand logo fallback
 │       ├── rajtechbd-logo-white.svg    # White vector brand logo
 │       ├── rajtechbd-hub.jpeg          # Kuril Technology Hub
 │       ├── rajtechbd-meeting.png       # Strategy & Architecture Meeting

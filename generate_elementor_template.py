@@ -205,7 +205,7 @@ FINTECH_IMG = "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=fo
 LMS_IMG = "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
 COMMERCE_IMG = "https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=1200&q=80"
 DEV_TEAM_IMG = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
-GROWTH_IMG = "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
+GROWTH_IMG = "https://rajtechbd.com/wp-content/uploads/2026/11/office-scaled.jpeg"
 
 def build_header():
     outer_settings = {

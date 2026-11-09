@@ -332,6 +332,7 @@ function rajtechbd_default_primary_menu() {
     echo '<li><a href="' . $home_url . '#team">Principal Architects</a></li>';
     echo '<li><a href="' . $portfolio_url . '">Portfolio &amp; Case Studies</a></li>';
     echo '<li><a href="' . $home_url . '#process">Engineering Blueprint</a></li>';
+    echo '<li><a href="' . esc_url( home_url( '/payment-system/' ) ) . '">Payment Methods &amp; System</a></li>';
     echo '</ul>';
     echo '</li>';
 
@@ -361,6 +362,7 @@ function rajtechbd_default_mobile_menu() {
     echo '<li><a href="' . $portfolio_url . '">Portfolio &amp; Case Studies</a></li>';
     echo '<li><a href="' . $blog_url . '">Engineering Blog</a></li>';
     echo '<li><a href="' . $faq_url . '">FAQ</a></li>';
+    echo '<li><a href="' . esc_url( home_url( '/payment-system/' ) ) . '">Payment Methods</a></li>';
     echo '<li><a href="' . $contact_url . '">Contact Us</a></li>';
     echo '</ul>';
 }

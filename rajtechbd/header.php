@@ -23,6 +23,87 @@ $contact_url  = $contact_page ? esc_url( get_permalink( $contact_page->ID ) ) : 
 <body <?php body_class( 'bg-white text-[#0F172A] antialiased selection:bg-[#F59E0B] selection:text-[#0F172A]' ); ?>>
 <?php wp_body_open(); ?>
 
+  <!-- ================= MINIMALIST UNIVERSAL WHITE GLOSSY PRELOADER ================= -->
+  <div id="rajtech-preloader" class="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-white/95 backdrop-blur-2xl transition-all duration-500 ease-out" aria-label="Loading RajTech BD">
+    <div class="preloader-glossy-card">
+      <!-- Attached Brand Logo -->
+      <img src="https://rajtechbd.com/wp-content/uploads/2024/09/black-logo-1.png" 
+           alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> - Loading" 
+           width="240" 
+           height="58" 
+           loading="eager" 
+           decoding="sync"
+           class="h-9 sm:h-10 md:h-11 w-auto max-w-[185px] sm:max-w-[220px] object-contain transition-transform" 
+           style="aspect-ratio: 300 / 72;"
+           onerror="this.onerror=null;this.src='<?php echo esc_url( $theme_uri . '/assets/images/black-logo-1.png' ); ?>';">
+
+      <!-- Minimalist Loading Progress Bar on Bottom Side of Logo -->
+      <div class="preloader-track" role="progressbar" aria-label="Page loading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div id="rajtech-progress-bar" class="preloader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Immediate Preloader Initialization Script -->
+  <script>
+  (function() {
+    // Disable in Elementor Editor/Preview to keep visual editor unblocked
+    if (window.location.href.indexOf('elementor-preview') !== -1 || (document.body && document.body.classList.contains('elementor-editor-active'))) {
+      var p = document.getElementById('rajtech-preloader');
+      if (p) p.style.display = 'none';
+      return;
+    }
+
+    var preloader = document.getElementById('rajtech-preloader');
+    var bar = document.getElementById('rajtech-progress-bar');
+    if (!preloader || !bar) return;
+
+    var progress = 14;
+    bar.style.width = progress + '%';
+    bar.parentElement.setAttribute('aria-valuenow', progress);
+
+    var timer = setInterval(function() {
+      if (progress < 82) {
+        progress += Math.floor(Math.random() * 12) + 6;
+        if (progress > 82) progress = 82;
+        bar.style.width = progress + '%';
+        bar.parentElement.setAttribute('aria-valuenow', progress);
+      }
+    }, 90);
+
+    function completeLoading() {
+      if (!preloader) return;
+      clearInterval(timer);
+      progress = 100;
+      bar.style.width = '100%';
+      bar.parentElement.setAttribute('aria-valuenow', 100);
+
+      setTimeout(function() {
+        preloader.classList.add('preloader-hidden');
+        setTimeout(function() {
+          preloader.style.display = 'none';
+        }, 500);
+      }, 240);
+    }
+
+    if (document.readyState === 'complete') {
+      completeLoading();
+    } else {
+      window.addEventListener('load', completeLoading);
+      document.addEventListener('DOMContentLoaded', function() {
+        if (progress < 65) {
+          progress = 65;
+          bar.style.width = '65%';
+          bar.parentElement.setAttribute('aria-valuenow', 65);
+        }
+      });
+    }
+
+    // Safety fallback: guaranteed to dismiss within 1.8s so it never hangs
+    setTimeout(completeLoading, 1800);
+  })();
+  </script>
+
   <!-- ================= 0. ENTERPRISE TOP MICRO-HEADER BAR ================= -->
   <div class="hidden lg:block bg-[#0B1528] text-white text-[12px] font-medium border-b border-[#1E3352]/70 py-2.5">
     <div class="max-w-[1280px] mx-auto px-6 flex items-center justify-between">
@@ -69,10 +150,14 @@ $contact_url  = $contact_page ? esc_url( get_permalink( $contact_page->ID ) ) : 
             <?php the_custom_logo(); ?>
           </div>
         <?php else : ?>
-          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center group py-2" aria-label="RajTech BD Limited Homepage">
-            <img src="<?php echo $theme_uri; ?>/assets/images/rajtechbd-logo.svg" 
-                 alt="RajTech BD Limited - Software & ERP Systems" 
-                 class="h-10 sm:h-11 w-auto transition-transform group-hover:scale-102">
+          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center group py-2" aria-label="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+            <img src="https://rajtechbd.com/wp-content/uploads/2024/09/black-logo-1.png" 
+                 alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> - Software & ERP Systems" 
+                 width="300" 
+                 height="72" 
+                 class="h-9 sm:h-10 md:h-11 w-auto max-w-[170px] sm:max-w-[200px] object-contain transition-transform group-hover:scale-102"
+                 style="aspect-ratio: 300 / 72;"
+                 onerror="this.onerror=null;this.src='<?php echo esc_url( $theme_uri . '/assets/images/black-logo-1.png' ); ?>';">
           </a>
         <?php endif; ?>
       </div>
@@ -122,10 +207,16 @@ $contact_url  = $contact_page ? esc_url( get_permalink( $contact_page->ID ) ) : 
   <aside id="mobile-menu-drawer" class="hidden fixed top-0 right-0 w-84 max-w-[85vw] h-full bg-white z-50 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
     <div>
       <div class="flex items-center justify-between pb-6 border-b border-[#F1F5F9] mb-6">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center" aria-label="RajTech BD Limited Homepage">
-          <img src="<?php echo $theme_uri; ?>/assets/images/rajtechbd-logo.svg" 
-               alt="RajTech BD Limited" 
-               class="h-9 w-auto">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center" aria-label="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+          <img src="https://rajtechbd.com/wp-content/uploads/2024/09/black-logo-1.png" 
+               alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> Logo" 
+               width="300" 
+               height="72"
+               loading="eager"
+               decoding="async"
+               class="h-9 sm:h-10 w-auto max-w-[165px] xs:max-w-[185px] object-contain transition-opacity hover:opacity-95"
+               style="aspect-ratio: 300 / 72;"
+               onerror="this.onerror=null;this.src='<?php echo esc_url( $theme_uri . '/assets/images/black-logo-1.png' ); ?>';">
         </a>
         <button id="mobile-menu-close" type="button" class="p-2 text-slate-500 hover:text-slate-800" aria-label="Close navigation menu">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
