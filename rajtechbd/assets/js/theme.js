@@ -141,4 +141,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }, { passive: true });
   }
+
+  // 6. Navigation Progress Integration
+  if (window.RajTechNavProgress && typeof window.RajTechNavProgress.finish === 'function') {
+    // If arriving on page, ensure top progress completes cleanly
+    window.RajTechNavProgress.finish();
+  }
 });

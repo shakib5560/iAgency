@@ -12,18 +12,156 @@ if ( ! defined( 'ABSPATH' ) ) {
 $theme_uri    = get_template_directory_uri();
 $contact_page = get_page_by_path( 'contact' );
 $contact_url  = $contact_page ? esc_url( get_permalink( $contact_page->ID ) ) : esc_url( home_url( '/contact/' ) );
+$is_main_landing = is_front_page() || is_home();
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="scroll-smooth">
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="profile" href="https://gmpg.org/xfn/11">
+  <!-- Instant Session Navigation Check to prevent preloader flash on revisits -->
+  <script>
+    try {
+      if (sessionStorage.getItem('rajtech_main_loaded')) {
+        document.documentElement.classList.add('rajtech-session-active');
+      }
+    } catch(e) {}
+  </script>
   <?php wp_head(); ?>
 </head>
 <body <?php body_class( 'bg-white text-[#0F172A] antialiased selection:bg-[#F59E0B] selection:text-[#0F172A]' ); ?>>
 <?php wp_body_open(); ?>
 
-  <!-- ================= MINIMALIST UNIVERSAL WHITE GLOSSY PRELOADER ================= -->
+  <!-- ================= YOUTUBE-STYLE TOP NAVIGATION PROGRESS BAR ================= -->
+  <div id="rajtech-top-progress" class="rajtech-top-nav-bar" role="progressbar" aria-label="Page navigation progress" aria-hidden="true">
+    <div class="rajtech-top-nav-glow"></div>
+  </div>
+
+  <!-- Lightweight YouTube-Style Top Navigation Progress Controller -->
+  <script>
+  (function() {
+    var progressBar = document.getElementById('rajtech-top-progress');
+    var progress = 0;
+    var progressTimer = null;
+    var isNavigating = false;
+
+    function setWidth(val) {
+      if (!progressBar) progressBar = document.getElementById('rajtech-top-progress');
+      if (!progressBar) return;
+      progress = val;
+      progressBar.style.width = val + '%';
+    }
+
+    function startNavProgress() {
+      if (!progressBar) progressBar = document.getElementById('rajtech-top-progress');
+      if (!progressBar) return;
+      if (isNavigating) return;
+      isNavigating = true;
+
+      clearInterval(progressTimer);
+      progressBar.classList.remove('completing', 'fade-out');
+      progressBar.classList.add('active');
+      setWidth(24);
+
+      progressTimer = setInterval(function() {
+        if (progress < 85) {
+          var step = Math.floor(Math.random() * 8) + 4;
+          setWidth(Math.min(progress + step, 85));
+        }
+      }, 120);
+    }
+
+    function finishNavProgress() {
+      if (!progressBar) progressBar = document.getElementById('rajtech-top-progress');
+      if (!progressBar) return;
+      clearInterval(progressTimer);
+      setWidth(100);
+      progressBar.classList.add('completing');
+
+      setTimeout(function() {
+        progressBar.classList.add('fade-out');
+        setTimeout(function() {
+          progressBar.classList.remove('active', 'completing', 'fade-out');
+          setWidth(0);
+          isNavigating = false;
+        }, 320);
+      }, 180);
+    }
+
+    window.RajTechNavProgress = {
+      start: startNavProgress,
+      finish: finishNavProgress
+    };
+
+    // On page arrival: If full preloader is NOT running, complete top bar smoothly
+    var preloader = document.getElementById('rajtech-preloader');
+    var isFullPreloaderActive = preloader && preloader.style.display !== 'none' && !document.documentElement.classList.contains('rajtech-session-active');
+    
+    if (!isFullPreloaderActive && progressBar) {
+      progressBar.classList.add('active');
+      setWidth(35);
+      if (document.readyState === 'complete') {
+        setTimeout(finishNavProgress, 60);
+      } else {
+        window.addEventListener('load', finishNavProgress);
+        setTimeout(finishNavProgress, 350); // fallback completion
+      }
+    }
+
+    // Intercept internal link clicks to trigger YouTube-style progress
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a');
+      if (!link || !link.href) return;
+
+      if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (link.target && link.target !== '_self') return;
+      if (link.hasAttribute('download')) return;
+
+      var href = link.getAttribute('href');
+      if (!href || href.charAt(0) === '#' || href.indexOf('javascript:') === 0 || href.indexOf('tel:') === 0 || href.indexOf('mailto:') === 0) return;
+
+      var targetUrl;
+      try {
+        targetUrl = new URL(link.href, window.location.href);
+      } catch (err) {
+        return;
+      }
+
+      if (targetUrl.origin !== window.location.origin) return;
+
+      // Skip in-page anchor navigation (same page, just hash)
+      if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search) {
+        return;
+      }
+
+      // Skip WordPress Admin / Login URLs
+      if (targetUrl.pathname.indexOf('/wp-admin') !== -1 || targetUrl.pathname.indexOf('/wp-login.php') !== -1) {
+        return;
+      }
+
+      startNavProgress();
+    }, true);
+
+    // If navigating away, boost progress to 90%
+    window.addEventListener('beforeunload', function() {
+      if (progressBar && isNavigating) {
+        setWidth(90);
+      }
+    });
+
+    // Handle browser bfcache navigation
+    window.addEventListener('pageshow', function(e) {
+      if (e.persisted && progressBar) {
+        progressBar.classList.remove('active', 'completing', 'fade-out');
+        setWidth(0);
+        isNavigating = false;
+      }
+    });
+  })();
+  </script>
+
+<?php if ( $is_main_landing ) : ?>
+  <!-- ================= MINIMALIST MAIN LANDING GLOSSY PRELOADER (ONE-TIME PER SESSION) ================= -->
   <div id="rajtech-preloader" class="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-white/95 backdrop-blur-2xl transition-all duration-500 ease-out" aria-label="Loading RajTech BD">
     <div class="preloader-glossy-card">
       <!-- Attached Brand Logo -->
@@ -44,17 +182,30 @@ $contact_url  = $contact_page ? esc_url( get_permalink( $contact_page->ID ) ) : 
     </div>
   </div>
 
-  <!-- Immediate Preloader Initialization Script -->
+  <!-- Immediate Main Preloader Initialization Script -->
   <script>
   (function() {
-    // Disable in Elementor Editor/Preview to keep visual editor unblocked
-    if (window.location.href.indexOf('elementor-preview') !== -1 || (document.body && document.body.classList.contains('elementor-editor-active'))) {
-      var p = document.getElementById('rajtech-preloader');
-      if (p) p.style.display = 'none';
+    var isSessionLoaded = false;
+    try {
+      isSessionLoaded = !!sessionStorage.getItem('rajtech_main_loaded');
+    } catch(e) {}
+
+    var preloader = document.getElementById('rajtech-preloader');
+
+    // Skip if already loaded in this session or inside Elementor Editor
+    if (isSessionLoaded || window.location.href.indexOf('elementor-preview') !== -1 || (document.body && document.body.classList.contains('elementor-editor-active'))) {
+      if (preloader) {
+        preloader.style.display = 'none';
+        if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+      }
       return;
     }
 
-    var preloader = document.getElementById('rajtech-preloader');
+    // Set session flag immediately so subsequent navigations / revisits skip full preloader
+    try {
+      sessionStorage.setItem('rajtech_main_loaded', 'true');
+    } catch(e) {}
+
     var bar = document.getElementById('rajtech-progress-bar');
     if (!preloader || !bar) return;
 
@@ -69,7 +220,7 @@ $contact_url  = $contact_page ? esc_url( get_permalink( $contact_page->ID ) ) : 
         bar.style.width = progress + '%';
         bar.parentElement.setAttribute('aria-valuenow', progress);
       }
-    }, 90);
+    }, 85);
 
     function completeLoading() {
       if (!preloader) return;
@@ -81,9 +232,10 @@ $contact_url  = $contact_page ? esc_url( get_permalink( $contact_page->ID ) ) : 
       setTimeout(function() {
         preloader.classList.add('preloader-hidden');
         setTimeout(function() {
-          preloader.style.display = 'none';
-        }, 500);
-      }, 240);
+          if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+          else preloader.style.display = 'none';
+        }, 450);
+      }, 200);
     }
 
     if (document.readyState === 'complete') {
@@ -99,10 +251,18 @@ $contact_url  = $contact_page ? esc_url( get_permalink( $contact_page->ID ) ) : 
       });
     }
 
-    // Safety fallback: guaranteed to dismiss within 1.8s so it never hangs
-    setTimeout(completeLoading, 1800);
+    // Safety fallback: guaranteed to dismiss within 1.6s so it never hangs
+    setTimeout(completeLoading, 1600);
   })();
   </script>
+<?php else : ?>
+  <!-- Internal Page: Ensure session is marked active so returning to homepage uses the top progress bar -->
+  <script>
+    try {
+      sessionStorage.setItem('rajtech_main_loaded', 'true');
+    } catch(e) {}
+  </script>
+<?php endif; ?>
 
   <!-- ================= 0. ENTERPRISE TOP MICRO-HEADER BAR ================= -->
   <div class="hidden lg:block bg-[#0B1528] text-white text-[12px] font-medium border-b border-[#1E3352]/70 py-2.5">
