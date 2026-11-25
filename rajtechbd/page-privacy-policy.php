@@ -82,7 +82,6 @@ else :
         <p class="m-0">Attention: Legal &amp; Data Protection Officer</p>
         <p class="m-0">Headquarters: House Kha-92/1, Kuril, Vatara, Dhaka-1229, Bangladesh.</p>
         <p class="m-0">Primary Email: <a href="mailto:info@rajtechbd.com">info@rajtechbd.com</a></p>
-        <p class="m-0">Secondary Email: <a href="mailto:rajtechbdt@gmail.com">rajtechbdt@gmail.com</a></p>
         <p class="m-0">Direct Telephone / WhatsApp: <a href="https://wa.me/8801758522846">+8801758522846</a></p>
       </div>
 

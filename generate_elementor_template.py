@@ -749,7 +749,7 @@ def build_section_9_cta_footer():
     )
     
     f_logo = make_heading('RajTechBD<span style="color: #F59E0B;">.</span>', tag="h3", color="#FFFFFF", font_size=24, font_weight="800")
-    f_about = make_text_editor("Specialized software engineering, sales development, and SEO agency based in Mirpur-14, Dhaka-1216, Bangladesh. Delivering mission-critical digital systems since 2018.<br><br><strong>Email:</strong> rajtechbdt@gmail.com<br><strong>Phone / WhatsApp:</strong> +8801758522846", color="#94A3B8", font_size=14, line_height=1.7)
+    f_about = make_text_editor("Specialized software engineering, sales development, and SEO agency based in Mirpur-14, Dhaka-1216, Bangladesh. Delivering mission-critical digital systems since 2018.<br><br><strong>Email:</strong> info@rajtechbd.com<br><strong>Phone / WhatsApp:</strong> +8801758522846", color="#94A3B8", font_size=14, line_height=1.7)
     col1 = make_container(elements=[f_logo, f_about], settings={"width": {"unit": "%", "size": 34}, "flex_direction": "column"}, is_inner=True)
     
     f_h2 = make_heading("Core Systems", tag="h4", color="#FFFFFF", font_size=16, font_weight="700", margin={"unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": False})

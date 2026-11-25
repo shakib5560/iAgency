@@ -87,6 +87,44 @@ body {
     linear-gradient(to bottom, rgba(30, 51, 82, 0.45) 1px, transparent 1px);
 }
 
+/* ================= CAREER HERO — WHITE MINIMALIST TEXTURE ================= */
+
+/* Dot-matrix background texture for the career hero */
+.career-dot-texture {
+  background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.45;
+}
+
+/* Stat cards: left accent line + subtle lift on hover */
+.career-stat-card {
+  position: relative;
+  transition: box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.career-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  left: 0;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: #0284C7;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.career-stat-card:hover {
+  box-shadow: 0 4px 16px -4px rgba(2, 132, 199, 0.12);
+  transform: translateY(-2px);
+  border-color: #BAE6FD;
+}
+
+.career-stat-card:hover::before {
+  opacity: 1;
+}
+
 @keyframes pulseGlow {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.4; transform: scale(1.15); }
@@ -362,12 +400,13 @@ html, body {
   top: 0;
   left: 0;
   width: 0%;
-  height: 3px;
-  background: linear-gradient(90deg, #0284C7 0%, #38BDF8 60%, #F59E0B 100%);
-  z-index: 1000000;
+  height: 2.5px;
+  background: #FF0000; /* Pure Minimalistic YouTube Solid Red */
+  z-index: 10000000;
   pointer-events: none;
   opacity: 0;
-  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  transform: translate3d(0, 0, 0);
+  transition: width 0.32s cubic-bezier(0.1, 0.45, 0.1, 1), opacity 0.25s ease-out;
   will-change: width, opacity;
 }
 
@@ -377,8 +416,8 @@ html, body {
 
 #rajtech-top-progress.completing {
   width: 100% !important;
-  opacity: 1;
-  transition: width 0.16s ease-out, opacity 0.25s ease 0.1s;
+  opacity: 1 !important;
+  transition: width 0.18s cubic-bezier(0, 0, 0.2, 1), opacity 0.25s ease 0.15s;
 }
 
 #rajtech-top-progress.fade-out {
@@ -389,12 +428,10 @@ html, body {
   position: absolute;
   top: 0;
   right: 0;
-  width: 90px;
+  width: 100px;
   height: 100%;
-  box-shadow: 0 0 14px #38BDF8, 0 0 6px #0284C7;
-  border-radius: 9999px;
+  box-shadow: 0 0 10px #FF0000, 0 0 4px #FF0000;
   opacity: 0.95;
-  transform: rotate(2deg) translateY(-1px);
 }
 
 /* Instant CSS skip to prevent preloader flash on revisit */
@@ -459,8 +496,8 @@ html.rajtech-session-active #rajtech-preloader {
 .preloader-track {
   width: 100%;
   max-width: 200px;
-  height: 4px;
-  background-color: #E2E8F0;
+  height: 3px;
+  background-color: #F1F5F9;
   border-radius: 9999px;
   overflow: hidden;
   margin-top: 1.25rem;
@@ -472,16 +509,9 @@ html.rajtech-session-active #rajtech-preloader {
   height: 100%;
   width: 0%;
   border-radius: 9999px;
-  background: linear-gradient(90deg, #0284C7 0%, #38BDF8 50%, #0284C7 100%);
-  background-size: 200% 100%;
-  animation: preloaderGradientShift 2s linear infinite;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.55);
-  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes preloaderGradientShift {
-  0% { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
+  background: #FF0000; /* Minimalist Solid YouTube Red */
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+  transition: width 0.32s cubic-bezier(0.1, 0.45, 0.1, 1);
 }
 
 

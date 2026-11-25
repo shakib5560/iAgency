@@ -20,6 +20,7 @@ $contact_url      = esc_url( home_url( '/contact/' ) );
 $privacy_url      = esc_url( home_url( '/privacy-policy/' ) );
 $terms_url        = esc_url( home_url( '/terms-and-conditions/' ) );
 $payment_url      = esc_url( home_url( '/payment-system/' ) );
+$career_url       = esc_url( home_url( '/career/' ) );
 ?>
 
   <!-- ================= ENTERPRISE FOOTER ================= -->
@@ -50,7 +51,6 @@ $payment_url      = esc_url( home_url( '/payment-system/' ) );
           
           <div class="text-sm text-[#94A3B8] space-y-2">
             <p><strong class="text-white">Primary Email:</strong> <a href="mailto:info@rajtechbd.com" class="hover:text-white transition-colors">info@rajtechbd.com</a></p>
-            <p><strong class="text-white">Secondary Email:</strong> <a href="mailto:rajtechbdt@gmail.com" class="hover:text-white transition-colors">rajtechbdt@gmail.com</a></p>
             <p><strong class="text-white">Phone / WhatsApp:</strong> <a href="https://wa.me/8801758522846" class="hover:text-white transition-colors" target="_blank" rel="noopener">+8801758522846</a></p>
             <p><strong class="text-white">Headquarters:</strong> House Kha-92/1, Kuril, Vatara, Dhaka-1229, Bangladesh.</p>
           </div>
@@ -89,6 +89,7 @@ $payment_url      = esc_url( home_url( '/payment-system/' ) );
             <li><a href="<?php echo $blog_url; ?>" class="hover:text-white transition-colors">Engineering Blog</a></li>
             <li><a href="<?php echo $faq_url; ?>" class="hover:text-white transition-colors">FAQ &amp; Knowledge Base</a></li>
             <li><a href="<?php echo $payment_url; ?>" class="hover:text-white transition-colors">Payment Methods &amp; System</a></li>
+            <li><a href="<?php echo $career_url; ?>" class="hover:text-white transition-colors">Careers &amp; Opportunities</a></li>
             <li><a href="<?php echo $contact_url; ?>" class="hover:text-white transition-colors">Contact Office</a></li>
             <li><a href="<?php echo $privacy_url; ?>" class="hover:text-white transition-colors">Privacy Policy</a></li>
             <li><a href="<?php echo $terms_url; ?>" class="hover:text-white transition-colors">Terms &amp; Conditions</a></li>

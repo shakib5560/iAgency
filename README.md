@@ -72,16 +72,30 @@ Crafted by **RajTech BD Limited** (Est. 2018 in Dhaka, Bangladesh), this theme f
 - Dedicated Single Blog template (`single.php`) featuring Executive Briefs, Gutenberg content formatting, Author Profile box, and Related Insights grid.
 
 ### 3. 💳 Enterprise Multi-Channel Payment System (`/payment-system/`)
-Dedicated financial transaction hub (`page-payment-system.php`) supporting 6 enterprise payment rails:
-1. **Visa & International Cards**: 3D Secure 2.0, multi-currency processing (BDT, USD, EUR, GBP).
-2. **Corporate Bank Wire (DBBL)**: Dutch-Bangla Bank Ltd corporate account, NPSB (instant), EFTN/BEFTN, RTGS (>৳100K), and SWIFT wire (`DBBLBDDH`).
-3. **bKash Merchant**: Official Merchant Payment (`01758522846`, Counter 1), QR payment, Personal, and USSD `*247#`.
-4. **Rocket (DBBL)**: Biller/Merchant ID (`01758522846`), 12-digit format, and USSD `*322#`.
-5. **Nagad Merchant**: Postal Digital Financial Service Merchant (`01758522846`), Personal, and USSD `*167#`.
-6. **Bank Cheque & Pay Order**: "Account Payee Only" corporate cheques drawn in favor of **RajTech BD Limited**.
-- **Interactive Tools**: 1-click clipboard copy with toast feedback, live TrxID verification form with `wp_mail` integration, TDS/VDS compliance guides, and FAQ accordion.
+Dedicated financial transaction hub (`page-payment-system.php` & `/payment-system/`) supporting 7 enterprise payment rails:
+1. **bKash Payment**: Official Merchant Account (`01758522846`, Counter 1), Personal Send Money, QR scan, and USSD `*247#`.
+2. **Nagad Payment**: Postal Digital Financial Service Merchant (`01758522846`), Personal Send Money, QR code, and USSD `*167#`.
+3. **SSL / SSLCommerz Gateway**: 1-click unified online checkout supporting 30+ bank cards, all mobile banking, and internet banking with instant webhook confirmation.
+4. **Rocket (DBBL)**: Dutch-Bangla Bank Limited MFS account (`01758522846-8`), Rocket App, and USSD `*322#`.
+5. **Corporate Bank Transfer (DBBL)**: Dutch-Bangla Bank Ltd corporate account (`117.110.0038942`, Kawran Bazar Branch, Routing `090272891`, SWIFT `DBBLBDDH`), NPSB real-time, EFTN/BEFTN, and RTGS with 0% fee.
+6. **Cards (Visa, Mastercard, Amex, UnionPay)**: 3D Secure 2.0 OTP authentication, multi-currency processing (BDT, USD, EUR, GBP).
+7. **Bank Cheque & Pay Order**: "Account Payee Only" corporate cheques drawn in favor of **RajTech BD Limited**.
+- **Interactive Tools**: 1-click clipboard copy with toast feedback, interactive Fee & VAT settlement estimator, live TrxID verification form with `wp_mail` integration, TDS/VDS compliance guides, and FAQ accordion.
 
-### 4. ⚖️ Enterprise Legal & Compliance Suite
+### 4. 🚀 Career & Talent Acquisition Portal (`/career/`)
+Dedicated hiring and recruitment portal (`page-career.php` & `/career/`):
+- **Candidate Application Form**: Full Name, Email, Contact Number (WhatsApp preferred), Years of Experience dropdown, Position of Interest, Google Drive Resume Link, and Statement/Cover Letter.
+- **Google Drive Resume Verification**: Explicit step-by-step guidance ensuring resumes are shared with public view permissions.
+- **Direct Queries Desk**: Official talent communication point `info@rajthechbd.com`.
+- **Hiring Policy**: Clear guidelines explicitly stating resumes must NOT be emailed directly and must be submitted via the portal.
+
+### 5. 💼 Technical Discovery & Scoping CRM (`/contact/`)
+Automated client lead pipeline & discovery scoping system (`page-contact.php` & `/contact/`):
+- **Dynamic Scoping Intake**: Full Name, Business Email, WhatsApp/Phone, Primary Capability Needed (Custom ERP, Speed Optimization, Headless Commerce, Mobile Apps, Sales SEO), and In-depth Project Scope.
+- **Automated CRM Dashboard**: Inquiries are saved directly into WordPress database (`wp_posts` & `wp_postmeta`) under **"Discovery Inquiries"** with 1-click WhatsApp and email links, pipeline stages (*New*, *In Discussion*, *Discovery Call Scheduled*, *Proposal Sent*, *Won / Active Project*), and internal notes.
+- **Universal REST API**: `/wp-json/rajtechbd/v1/discovery-inquiry` for seamless headless or AJAX submissions.
+
+### 6. ⚖️ Enterprise Legal & Compliance Suite
 - **Privacy Policy (`page-privacy-policy.php`)**: Bank-grade data protection, strict Non-Disclosure Agreement (NDA) compliance, and AI data safeguards ensuring client data is never used to train public LLMs.
 - **Terms & Conditions (`page-terms.php`)**: 100% client source code ownership upon final milestone delivery, 60-90 day bug-fix warranties, and 24/7 SLA governance under the laws of Bangladesh.
 
@@ -108,6 +122,7 @@ rajTechBD/
 │   ├── page-case-studies.php              # Case studies overview template
 │   ├── page-faq.php                       # Interactive FAQ accordion template
 │   ├── page-payment-system.php            # Enterprise multi-channel payment hub
+│   ├── page-career.php                    # Career & talent acquisition portal
 │   ├── page-contact.php                   # Contact & project inquiry template
 │   ├── page-privacy-policy.php            # Bank-grade privacy & NDA terms
 │   ├── page-terms.php                     # Client IP ownership & service SLA
@@ -119,6 +134,12 @@ rajTechBD/
 │       ├── css/theme.css                  # Custom styling, animations & glassmorphism
 │       ├── js/theme.js                    # Interaction scripts & accordion controllers
 │       └── images/                        # Logos, icons & brand vectors
+├── career/                                # Standalone static career portal (HTML/Tailwind)
+│   └── index.html                         # Career application form & vacancies
+├── contact/                               # Standalone static contact & technical discovery portal
+│   └── index.html                         # Technical consultation scoping form
+├── payment-system/                        # Standalone static payment hub (HTML/Tailwind)
+│   └── index.html                         # Payment methods & fee calculator
 ├── photo/                                 # High-resolution original design assets
 │   └── Gemini_Generated_Image_d05clid05clid05c1-scaled.jpeg # Source thumbnail
 ├── generate_elementor_template.py         # Elementor JSON schema generator
@@ -167,7 +188,6 @@ Kuril, Vatara, Dhaka-1229, Bangladesh
 |---|---|
 | **Official Website** | [rajtechbd.com](https://rajtechbd.com) |
 | **Primary Email** | [info@rajtechbd.com](mailto:info@rajtechbd.com) |
-| **Secondary Email** | [rajtechbdt@gmail.com](mailto:rajtechbdt@gmail.com) |
 | **Hotline / WhatsApp** | [+880 1758-522846](https://wa.me/8801758522846) |
 | **GitHub** | [@shakib5560](https://github.com/shakib5560) |
 

@@ -257,6 +257,399 @@ else :
     </div>
   </section>
 
+  <!-- ================= OUR CORE IT SERVICES (SWISS EDITORIAL ASYMMETRIC SHOWCASE) ================= -->
+  <section id="our-services" class="relative bg-[#FFFFFF] py-24 lg:py-28 border-b border-[#E2E8F0]">
+    <!-- Subtle Architectural Background Layer (Low-Contrast #F3F5F7) -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <!-- Subtle Technical Grid -->
+      <div class="absolute inset-0 opacity-60" style="background-size: 64px 64px; background-image: linear-gradient(to right, #F3F5F7 1px, transparent 1px), linear-gradient(to bottom, #F3F5F7 1px, transparent 1px);"></div>
+      <!-- Oversized Partially Cropped Outlined Circle (Top Right) -->
+      <div class="hidden lg:block absolute -top-36 -right-36 w-[520px] h-[520px] rounded-full border border-[#ECEFF2]"></div>
+      <!-- Secondary Architectural Ring (Bottom Left) -->
+      <div class="hidden lg:block absolute -bottom-24 left-12 w-[320px] h-[320px] rounded-full border border-[#F3F5F7]"></div>
+    </div>
+
+    <div class="relative z-10 max-w-[1280px] mx-auto px-6">
+
+      <!-- Asymmetric Editorial Header -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end pb-12 mb-14 border-b border-[#E2E8F0] reveal">
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2.5 text-xs font-mono-tag font-bold text-[#0284C7] tracking-[2px] uppercase mb-4">
+            <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+            <span>OUR SERVICES // GLOBAL IT &amp; AI</span>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-[-0.03em] text-[#0F172A] leading-[1.08]">
+            Core Engineering &amp; Digital Transformation
+          </h2>
+        </div>
+        <div class="lg:col-span-5 lg:pb-1">
+          <p class="text-[#475569] text-base sm:text-lg leading-relaxed">
+            We partner with organizations across the USA, UK, Canada, Europe, and Australia to architect custom software, AI automation, cybersecurity, cloud infrastructure, and data intelligence.
+          </p>
+        </div>
+      </div>
+
+      <!-- Asymmetric Editorial Split: Left Visual Identity + Right Integrated Service Experience -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+        <!-- Left Zone: Sticky Visual Identity with Geometric Accent -->
+        <div class="lg:col-span-5 lg:sticky lg:top-28">
+          <figure class="relative m-0">
+            <!-- Oversized Outlined Geometric Circle Behind Image -->
+            <div class="hidden sm:block absolute -top-6 -left-6 w-48 h-48 rounded-full border border-[#E2E8F0] pointer-events-none" aria-hidden="true"></div>
+            <div class="hidden sm:flex items-center gap-2 absolute -top-3 right-3 z-20 px-2.5 py-1 bg-[#FFFFFF] border border-[#E2E8F0] text-[10px] font-mono-tag text-[#0284C7] tracking-widest uppercase">
+              <span>SYS.01—05</span>
+            </div>
+
+            <div class="relative z-10 overflow-hidden rounded-md bg-[#F3F5F7] aspect-[4/4] sm:aspect-[5/4] lg:aspect-[4/4]">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
+                   alt="Minimalist software engineering and cloud architecture workspace"
+                   loading="lazy"
+                   decoding="async"
+                   class="w-full h-full object-cover"
+                   onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';">
+            </div>
+
+            <figcaption class="mt-4 pt-3 border-t border-[#E2E8F0] flex items-center justify-between text-[11px] font-mono-tag text-[#64748B] tracking-wider uppercase">
+              <span>FIG. 01 &mdash; ENGINEERING WORKSPACE</span>
+              <span class="text-[#0284C7] font-semibold">Dhaka HQ: Kuril, Vatara, Dhaka-1229</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Right Zone: Card-Free Editorial Interactive Service Experience -->
+        <div class="lg:col-span-7 flex flex-col justify-between">
+          <div id="rajtech-services-carousel"
+               class="flex flex-col"
+               role="region"
+               aria-roledescription="carousel"
+               aria-label="Core IT Services Showcase">
+
+            <!-- Integrated Minimalist Navigation Bar -->
+            <div class="flex items-center justify-between gap-4 pb-4 border-b border-[#E2E8F0]">
+              <nav class="flex items-center gap-4 sm:gap-7" role="tablist" aria-label="Select a service">
+                <button type="button" role="tab" aria-selected="true" data-service-tab="0" class="service-tab-btn text-xs sm:text-sm font-mono-tag font-bold text-[#0284C7] transition-colors cursor-pointer">01</button>
+                <button type="button" role="tab" aria-selected="false" data-service-tab="1" class="service-tab-btn text-xs sm:text-sm font-mono-tag font-bold text-[#94A3B8] hover:text-[#0F172A] transition-colors cursor-pointer">02</button>
+                <button type="button" role="tab" aria-selected="false" data-service-tab="2" class="service-tab-btn text-xs sm:text-sm font-mono-tag font-bold text-[#94A3B8] hover:text-[#0F172A] transition-colors cursor-pointer">03</button>
+                <button type="button" role="tab" aria-selected="false" data-service-tab="3" class="service-tab-btn text-xs sm:text-sm font-mono-tag font-bold text-[#94A3B8] hover:text-[#0F172A] transition-colors cursor-pointer">04</button>
+                <button type="button" role="tab" aria-selected="false" data-service-tab="4" class="service-tab-btn text-xs sm:text-sm font-mono-tag font-bold text-[#94A3B8] hover:text-[#0F172A] transition-colors cursor-pointer">05</button>
+              </nav>
+
+              <div class="flex items-center gap-4 text-xs font-mono-tag">
+                <button type="button" id="service-prev-btn" aria-label="Previous service" class="text-[#64748B] hover:text-[#0284C7] transition-colors cursor-pointer uppercase tracking-wider font-semibold">&larr; Prev</button>
+                <span class="text-[#CBD5E1]" aria-hidden="true">/</span>
+                <button type="button" id="service-next-btn" aria-label="Next service" class="text-[#64748B] hover:text-[#0284C7] transition-colors cursor-pointer uppercase tracking-wider font-semibold">Next &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Slim Animated Progress Indicator -->
+            <div class="w-full h-[2px] bg-[#F3F5F7] overflow-hidden mb-10">
+              <div id="service-progress-bar" class="h-full bg-[#0284C7] w-0"></div>
+            </div>
+
+            <!-- Overlapping Slides Grid (Horizontal + Subtle Fade, Independent Number & Heading Animation) -->
+            <div class="grid items-start min-h-[340px]" aria-live="polite">
+
+              <!-- Slide 01: AI Development & Business Automation -->
+              <article class="service-slide col-start-1 row-start-1 transition-opacity duration-500 ease-out opacity-100 relative z-10" data-slide-index="0" aria-hidden="false">
+                <div class="flex items-baseline justify-between gap-4 mb-5">
+                  <div class="inline-flex items-center gap-2.5 text-xs font-mono-tag font-bold text-[#0284C7] uppercase tracking-[2px]">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>AI &amp; Business Automation</span>
+                  </div>
+                  <span class="service-num text-6xl sm:text-7xl font-extrabold font-mono-tag text-[#F3F5F7] select-none leading-none transition-all duration-500 ease-out translate-x-0 opacity-100">01</span>
+                </div>
+                <h3 class="service-heading text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-[-0.025em] mb-5 leading-[1.15] transition-all duration-500 delay-75 ease-out translate-x-0 opacity-100">
+                  AI Development &amp; Business Automation
+                </h3>
+                <p class="text-[#475569] text-base sm:text-[17px] leading-relaxed mb-7 max-w-2xl">
+                  Transform your business operations with intelligent AI solutions and workflow automation. As a specialized AI development company, we build custom AI solutions, AI agent development pipelines, conversational AI chatbot development, and generative AI integration that reduce manual tasks, improve productivity, and accelerate growth.
+                </p>
+                <p class="text-xs font-mono-tag text-[#64748B] tracking-wide mb-8 leading-relaxed">
+                  AI Automation Services <span class="text-[#CBD5E1] mx-1.5">/</span> AI Agent Development <span class="text-[#CBD5E1] mx-1.5">/</span> Generative AI Integration <span class="text-[#CBD5E1] mx-1.5">/</span> Workflow Automation
+                </p>
+                <a href="<?php echo $services_url; ?>#ai-systems" class="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#0F172A] hover:text-[#0284C7] border-b-2 border-[#0284C7] pb-1 transition-colors group">
+                  <span>Explore Service</span>
+                  <span class="text-[#0284C7] group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span>
+                </a>
+              </article>
+
+              <!-- Slide 02: Custom Software & SaaS Development -->
+              <article class="service-slide col-start-1 row-start-1 transition-opacity duration-500 ease-out opacity-0 pointer-events-none" data-slide-index="1" aria-hidden="true">
+                <div class="flex items-baseline justify-between gap-4 mb-5">
+                  <div class="inline-flex items-center gap-2.5 text-xs font-mono-tag font-bold text-[#0284C7] uppercase tracking-[2px]">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                    <span>Software &amp; SaaS Engineering</span>
+                  </div>
+                  <span class="service-num text-6xl sm:text-7xl font-extrabold font-mono-tag text-[#F3F5F7] select-none leading-none transition-all duration-500 ease-out translate-x-6 opacity-0">02</span>
+                </div>
+                <h3 class="service-heading text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-[-0.025em] mb-5 leading-[1.15] transition-all duration-500 delay-75 ease-out translate-x-6 opacity-0">
+                  Custom Software &amp; SaaS Development
+                </h3>
+                <p class="text-[#475569] text-base sm:text-[17px] leading-relaxed mb-7 max-w-2xl">
+                  Build powerful, scalable software solutions tailored to your business requirements. From enterprise software development and SaaS development services to web application development, custom CRM development, ERP software development, and e-commerce development, we turn complex requirements into reliable digital products.
+                </p>
+                <p class="text-xs font-mono-tag text-[#64748B] tracking-wide mb-8 leading-relaxed">
+                  SaaS Development Services <span class="text-[#CBD5E1] mx-1.5">/</span> Enterprise Software <span class="text-[#CBD5E1] mx-1.5">/</span> Custom CRM &amp; ERP <span class="text-[#CBD5E1] mx-1.5">/</span> E-Commerce Development
+                </p>
+                <a href="<?php echo $services_url; ?>#solutions" class="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#0F172A] hover:text-[#0284C7] border-b-2 border-[#0284C7] pb-1 transition-colors group">
+                  <span>Explore Service</span>
+                  <span class="text-[#0284C7] group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span>
+                </a>
+              </article>
+
+              <!-- Slide 03: Cybersecurity & Application Security -->
+              <article class="service-slide col-start-1 row-start-1 transition-opacity duration-500 ease-out opacity-0 pointer-events-none" data-slide-index="2" aria-hidden="true">
+                <div class="flex items-baseline justify-between gap-4 mb-5">
+                  <div class="inline-flex items-center gap-2.5 text-xs font-mono-tag font-bold text-[#0284C7] uppercase tracking-[2px]">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <span>Cybersecurity &amp; Risk</span>
+                  </div>
+                  <span class="service-num text-6xl sm:text-7xl font-extrabold font-mono-tag text-[#F3F5F7] select-none leading-none transition-all duration-500 ease-out translate-x-6 opacity-0">03</span>
+                </div>
+                <h3 class="service-heading text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-[-0.025em] mb-5 leading-[1.15] transition-all duration-500 delay-75 ease-out translate-x-6 opacity-0">
+                  Cybersecurity &amp; Application Security
+                </h3>
+                <p class="text-[#475569] text-base sm:text-[17px] leading-relaxed mb-7 max-w-2xl">
+                  Protect your digital infrastructure, applications, and sensitive business information with comprehensive cybersecurity services. Through website security audits, vulnerability assessment, penetration testing, cloud security solutions, and secure software development, we strengthen your digital environments.
+                </p>
+                <p class="text-xs font-mono-tag text-[#64748B] tracking-wide mb-8 leading-relaxed">
+                  Application Security <span class="text-[#CBD5E1] mx-1.5">/</span> Penetration Testing <span class="text-[#CBD5E1] mx-1.5">/</span> Vulnerability Assessment <span class="text-[#CBD5E1] mx-1.5">/</span> Cloud Security
+                </p>
+                <a href="<?php echo $contact_url; ?>" class="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#0F172A] hover:text-[#0284C7] border-b-2 border-[#0284C7] pb-1 transition-colors group">
+                  <span>Explore Service</span>
+                  <span class="text-[#0284C7] group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span>
+                </a>
+              </article>
+
+              <!-- Slide 04: Cloud Computing & DevOps Engineering -->
+              <article class="service-slide col-start-1 row-start-1 transition-opacity duration-500 ease-out opacity-0 pointer-events-none" data-slide-index="3" aria-hidden="true">
+                <div class="flex items-baseline justify-between gap-4 mb-5">
+                  <div class="inline-flex items-center gap-2.5 text-xs font-mono-tag font-bold text-[#0284C7] uppercase tracking-[2px]">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                    </svg>
+                    <span>Cloud &amp; DevOps</span>
+                  </div>
+                  <span class="service-num text-6xl sm:text-7xl font-extrabold font-mono-tag text-[#F3F5F7] select-none leading-none transition-all duration-500 ease-out translate-x-6 opacity-0">04</span>
+                </div>
+                <h3 class="service-heading text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-[-0.025em] mb-5 leading-[1.15] transition-all duration-500 delay-75 ease-out translate-x-6 opacity-0">
+                  Cloud Computing &amp; DevOps Engineering
+                </h3>
+                <p class="text-[#475569] text-base sm:text-[17px] leading-relaxed mb-7 max-w-2xl">
+                  Build, deploy, and manage reliable cloud infrastructure designed for performance and scalability. Our DevOps consulting services encompass AWS cloud solutions, cloud migration services, Docker and Kubernetes services, CI/CD pipeline automation, and server optimization services.
+                </p>
+                <p class="text-xs font-mono-tag text-[#64748B] tracking-wide mb-8 leading-relaxed">
+                  AWS Cloud Solutions <span class="text-[#CBD5E1] mx-1.5">/</span> Docker &amp; Kubernetes <span class="text-[#CBD5E1] mx-1.5">/</span> CI/CD Pipeline Automation <span class="text-[#CBD5E1] mx-1.5">/</span> Cloud Migration
+                </p>
+                <a href="<?php echo $services_url; ?>#optimization" class="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#0F172A] hover:text-[#0284C7] border-b-2 border-[#0284C7] pb-1 transition-colors group">
+                  <span>Explore Service</span>
+                  <span class="text-[#0284C7] group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span>
+                </a>
+              </article>
+
+              <!-- Slide 05: Data Engineering & Business Intelligence -->
+              <article class="service-slide col-start-1 row-start-1 transition-opacity duration-500 ease-out opacity-0 pointer-events-none" data-slide-index="4" aria-hidden="true">
+                <div class="flex items-baseline justify-between gap-4 mb-5">
+                  <div class="inline-flex items-center gap-2.5 text-xs font-mono-tag font-bold text-[#0284C7] uppercase tracking-[2px]">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    <span>Data &amp; Intelligence</span>
+                  </div>
+                  <span class="service-num text-6xl sm:text-7xl font-extrabold font-mono-tag text-[#F3F5F7] select-none leading-none transition-all duration-500 ease-out translate-x-6 opacity-0">05</span>
+                </div>
+                <h3 class="service-heading text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-[-0.025em] mb-5 leading-[1.15] transition-all duration-500 delay-75 ease-out translate-x-6 opacity-0">
+                  Data Engineering &amp; Business Intelligence
+                </h3>
+                <p class="text-[#475569] text-base sm:text-[17px] leading-relaxed mb-7 max-w-2xl">
+                  Turn complex business data into meaningful insights and smarter decisions. Our data engineering services deliver data pipeline development, real-time data processing, database optimization, business intelligence dashboards, and predictive analytics solutions for data-driven organizations.
+                </p>
+                <p class="text-xs font-mono-tag text-[#64748B] tracking-wide mb-8 leading-relaxed">
+                  Data Pipeline Development <span class="text-[#CBD5E1] mx-1.5">/</span> BI Dashboards <span class="text-[#CBD5E1] mx-1.5">/</span> Real-Time Processing <span class="text-[#CBD5E1] mx-1.5">/</span> Predictive Analytics
+                </p>
+                <a href="<?php echo $services_url; ?>#finance" class="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#0F172A] hover:text-[#0284C7] border-b-2 border-[#0284C7] pb-1 transition-colors group">
+                  <span>Explore Service</span>
+                  <span class="text-[#0284C7] group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span>
+                </a>
+              </article>
+
+            </div>
+
+          </div>
+
+          <!-- Integrated Horizontal Closing Call-To-Action -->
+          <div class="mt-12 pt-8 border-t border-[#E2E8F0] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <div>
+              <h3 class="text-xl font-bold text-[#0F172A] tracking-tight mb-1">
+                Have a Business Challenge? Let&apos;s Build the Right Solution.
+              </h3>
+              <p class="text-sm text-[#475569]">
+                Discuss your software, AI, cloud, or security roadmap with our senior engineering team.
+              </p>
+            </div>
+            <a href="<?php echo $contact_url; ?>" class="shrink-0 inline-flex items-center justify-center px-6 py-3.5 rounded-[6px] bg-[#0284C7] text-white font-bold text-sm hover:bg-[#0369a1] hover-lift transition-all">
+              Discuss Your Project &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var carousel = document.getElementById('rajtech-services-carousel');
+        if (!carousel) return;
+
+        var slides = carousel.querySelectorAll('.service-slide');
+        var tabs = carousel.querySelectorAll('.service-tab-btn');
+        var prevBtn = document.getElementById('service-prev-btn');
+        var nextBtn = document.getElementById('service-next-btn');
+        var progressBar = document.getElementById('service-progress-bar');
+
+        var current = 0;
+        var total = slides.length;
+        var intervalMs = 5500;
+        var autoTimer = null;
+        var isPaused = false;
+        var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function resetProgress() {
+          if (!progressBar) return;
+          progressBar.style.transition = 'none';
+          progressBar.style.width = '0%';
+          if (prefersReducedMotion || isPaused) return;
+          void progressBar.offsetWidth;
+          progressBar.style.transition = 'width ' + intervalMs + 'ms linear';
+          progressBar.style.width = '100%';
+        }
+
+        function goToSlide(index, userTriggered) {
+          current = (index + total) % total;
+
+          slides.forEach(function (slide, idx) {
+            var numEl = slide.querySelector('.service-num');
+            var headingEl = slide.querySelector('.service-heading');
+            if (idx === current) {
+              slide.classList.remove('opacity-0', 'pointer-events-none');
+              slide.classList.add('opacity-100', 'relative', 'z-10');
+              slide.setAttribute('aria-hidden', 'false');
+              if (numEl) {
+                numEl.classList.remove('translate-x-6', 'opacity-0');
+                numEl.classList.add('translate-x-0', 'opacity-100');
+              }
+              if (headingEl) {
+                headingEl.classList.remove('translate-x-6', 'opacity-0');
+                headingEl.classList.add('translate-x-0', 'opacity-100');
+              }
+            } else {
+              slide.classList.remove('opacity-100', 'relative', 'z-10');
+              slide.classList.add('opacity-0', 'pointer-events-none');
+              slide.setAttribute('aria-hidden', 'true');
+              if (numEl) {
+                numEl.classList.remove('translate-x-0', 'opacity-100');
+                numEl.classList.add('translate-x-6', 'opacity-0');
+              }
+              if (headingEl) {
+                headingEl.classList.remove('translate-x-0', 'opacity-100');
+                headingEl.classList.add('translate-x-6', 'opacity-0');
+              }
+            }
+          });
+
+          tabs.forEach(function (tab, idx) {
+            if (idx === current) {
+              tab.classList.remove('text-[#94A3B8]', 'hover:text-[#0F172A]');
+              tab.classList.add('text-[#0284C7]');
+              tab.setAttribute('aria-selected', 'true');
+            } else {
+              tab.classList.remove('text-[#0284C7]');
+              tab.classList.add('text-[#94A3B8]', 'hover:text-[#0F172A]');
+              tab.setAttribute('aria-selected', 'false');
+            }
+          });
+
+          if (userTriggered) {
+            restartAutoplay();
+          } else {
+            resetProgress();
+          }
+        }
+
+        function startAutoplay() {
+          if (prefersReducedMotion || isPaused) return;
+          clearInterval(autoTimer);
+          resetProgress();
+          autoTimer = setInterval(function () {
+            goToSlide(current + 1, false);
+          }, intervalMs);
+        }
+
+        function stopAutoplay() {
+          clearInterval(autoTimer);
+          if (progressBar) {
+            progressBar.style.transition = 'none';
+          }
+        }
+
+        function restartAutoplay() {
+          stopAutoplay();
+          if (!isPaused) {
+            startAutoplay();
+          } else {
+            resetProgress();
+          }
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener('click', function () {
+            var idx = parseInt(tab.getAttribute('data-service-tab'), 10);
+            goToSlide(idx, true);
+          });
+        });
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', function () {
+            goToSlide(current - 1, true);
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', function () {
+            goToSlide(current + 1, true);
+          });
+        }
+
+        carousel.addEventListener('mouseenter', function () {
+          isPaused = true;
+          stopAutoplay();
+        });
+
+        carousel.addEventListener('mouseleave', function () {
+          isPaused = false;
+          startAutoplay();
+        });
+
+        carousel.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight') {
+            goToSlide(current + 1, true);
+          } else if (e.key === 'ArrowLeft') {
+            goToSlide(current - 1, true);
+          }
+        });
+
+        startAutoplay();
+      })();
+    </script>
+  </section>
+
   <!-- ================= SECTION 4: ARCHITECTURE COMPARISON TABLE ================= -->
   <section class="py-20 bg-[#F8FAFC] border-b border-[#F1F5F9]">
     <div class="max-w-[1280px] mx-auto px-6">

@@ -52,6 +52,15 @@ $is_main_landing = is_front_page() || is_home();
       progressBar.style.width = val + '%';
     }
 
+    function trickle() {
+      if (!isNavigating) return;
+      if (progress < 92) {
+        var delta = (94 - progress) * 0.12;
+        if (delta < 0.4) delta = 0.4;
+        setWidth(Math.min(progress + delta, 92));
+      }
+    }
+
     function startNavProgress() {
       if (!progressBar) progressBar = document.getElementById('rajtech-top-progress');
       if (!progressBar) return;
@@ -61,14 +70,9 @@ $is_main_landing = is_front_page() || is_home();
       clearInterval(progressTimer);
       progressBar.classList.remove('completing', 'fade-out');
       progressBar.classList.add('active');
-      setWidth(24);
+      setWidth(18);
 
-      progressTimer = setInterval(function() {
-        if (progress < 85) {
-          var step = Math.floor(Math.random() * 8) + 4;
-          setWidth(Math.min(progress + step, 85));
-        }
-      }, 120);
+      progressTimer = setInterval(trickle, 160);
     }
 
     function finishNavProgress() {
@@ -84,8 +88,8 @@ $is_main_landing = is_front_page() || is_home();
           progressBar.classList.remove('active', 'completing', 'fade-out');
           setWidth(0);
           isNavigating = false;
-        }, 320);
-      }, 180);
+        }, 280);
+      }, 200);
     }
 
     window.RajTechNavProgress = {
@@ -93,18 +97,28 @@ $is_main_landing = is_front_page() || is_home();
       finish: finishNavProgress
     };
 
-    // On page arrival: If full preloader is NOT running, complete top bar smoothly
+    // On page arrival: smooth progression to 100%
     var preloader = document.getElementById('rajtech-preloader');
     var isFullPreloaderActive = preloader && preloader.style.display !== 'none' && !document.documentElement.classList.contains('rajtech-session-active');
     
     if (!isFullPreloaderActive && progressBar) {
       progressBar.classList.add('active');
-      setWidth(35);
+      setWidth(22);
+      
+      var advanceTimer = setTimeout(function() {
+        setWidth(75);
+      }, 70);
+
+      var completeArrival = function() {
+        clearTimeout(advanceTimer);
+        setTimeout(finishNavProgress, 90);
+      };
+
       if (document.readyState === 'complete') {
-        setTimeout(finishNavProgress, 60);
+        completeArrival();
       } else {
-        window.addEventListener('load', finishNavProgress);
-        setTimeout(finishNavProgress, 350); // fallback completion
+        window.addEventListener('load', completeArrival);
+        setTimeout(completeArrival, 400); // graceful fallback
       }
     }
 
@@ -142,10 +156,10 @@ $is_main_landing = is_front_page() || is_home();
       startNavProgress();
     }, true);
 
-    // If navigating away, boost progress to 90%
+    // If navigating away, smoothly glide progress to 95%
     window.addEventListener('beforeunload', function() {
       if (progressBar && isNavigating) {
-        setWidth(90);
+        setWidth(95);
       }
     });
 
@@ -209,18 +223,19 @@ $is_main_landing = is_front_page() || is_home();
     var bar = document.getElementById('rajtech-progress-bar');
     if (!preloader || !bar) return;
 
-    var progress = 14;
+    var progress = 18;
     bar.style.width = progress + '%';
     bar.parentElement.setAttribute('aria-valuenow', progress);
 
     var timer = setInterval(function() {
-      if (progress < 82) {
-        progress += Math.floor(Math.random() * 12) + 6;
-        if (progress > 82) progress = 82;
+      if (progress < 88) {
+        var delta = (92 - progress) * 0.14;
+        if (delta < 0.5) delta = 0.5;
+        progress = Math.min(progress + delta, 88);
         bar.style.width = progress + '%';
-        bar.parentElement.setAttribute('aria-valuenow', progress);
+        bar.parentElement.setAttribute('aria-valuenow', Math.round(progress));
       }
-    }, 85);
+    }, 120);
 
     function completeLoading() {
       if (!preloader) return;
@@ -409,7 +424,6 @@ $is_main_landing = is_front_page() || is_home();
       <div class="text-xs text-[#64748B] text-center pt-2 space-y-1">
         <div>Kuril, Vatara, Dhaka-1229</div>
         <div>Primary: <a href="mailto:info@rajtechbd.com" class="text-[#0284C7] font-semibold">info@rajtechbd.com</a></div>
-        <div>Secondary: <a href="mailto:rajtechbdt@gmail.com" class="text-slate-500">rajtechbdt@gmail.com</a></div>
       </div>
     </div>
   </aside>

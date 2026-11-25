@@ -24,18 +24,19 @@ if ( $_SERVER['REQUEST_METHOD'] === 'POST' && isset( $_POST['rajtechbd_contact_s
         $details = isset( $_POST['project_details'] ) ? sanitize_textarea_field( wp_unslash( $_POST['project_details'] ) ) : '';
 
         if ( ! empty( $name ) && ! empty( $email ) && ! empty( $details ) ) {
-            $to      = 'info@rajtechbd.com';
-            $subject = 'New Technical Discovery Inquiry from ' . $name . ' (' . $service . ')';
-            $body    = "Name: $name\nEmail: $email\nPhone/WhatsApp: $phone\nService: $service\n\nProject Scope:\n$details";
-            $headers = array( 
-                'Content-Type: text/plain; charset=UTF-8', 
-                "Reply-To: $name <$email>",
-                'Cc: rajtechbdt@gmail.com'
-            );
+            $saved_id = rajtechbd_save_discovery_inquiry( array(
+                'client_name'      => $name,
+                'client_email'     => $email,
+                'client_phone'     => $phone,
+                'service_interest' => $service,
+                'project_details'  => $details,
+            ) );
 
-            // Attempt wp_mail
-            wp_mail( $to, $subject, $body, $headers );
-            $message_sent = true;
+            if ( is_wp_error( $saved_id ) ) {
+                $error_message = 'There was an error saving your request. Please try again.';
+            } else {
+                $message_sent = true;
+            }
         } else {
             $error_message = 'Please fill out all required fields (Name, Email, and Project Scope).';
         }
@@ -110,10 +111,6 @@ else :
               <a href="mailto:info@rajtechbd.com" class="text-lg font-bold text-[#0F172A] hover:text-[#0284C7] transition-colors block">
                 info@rajtechbd.com
               </a>
-              <div class="mt-2 pt-2 border-t border-[#E2E8F0] flex items-center justify-between text-xs text-[#64748B]">
-                <span>Secondary Mail:</span>
-                <a href="mailto:rajtechbdt@gmail.com" class="font-mono-tag font-medium text-[#0284C7] hover:underline">rajtechbdt@gmail.com</a>
-              </div>
             </div>
 
             <div class="p-5 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC]">
@@ -170,14 +167,18 @@ else :
                 <label for="client_name" class="block text-xs font-bold font-mono-tag text-[#334155] uppercase mb-2">
                   Full Name *
                 </label>
-                <input type="text" id="client_name" name="client_name" required placeholder="e.g. Md. Shakib" class="form-input">
+                <input type="text" id="client_name" name="client_name" required placeholder="e.g. Md. Shakib" 
+                       value="<?php echo isset( $_POST['client_name'] ) ? esc_attr( wp_unslash( $_POST['client_name'] ) ) : ''; ?>" 
+                       class="form-input">
               </div>
 
               <div>
                 <label for="client_email" class="block text-xs font-bold font-mono-tag text-[#334155] uppercase mb-2">
                   Business Email *
                 </label>
-                <input type="email" id="client_email" name="client_email" required placeholder="name@company.com" class="form-input">
+                <input type="email" id="client_email" name="client_email" required placeholder="name@company.com" 
+                       value="<?php echo isset( $_POST['client_email'] ) ? esc_attr( wp_unslash( $_POST['client_email'] ) ) : ''; ?>" 
+                       class="form-input">
               </div>
             </div>
 
@@ -186,7 +187,9 @@ else :
                 <label for="client_phone" class="block text-xs font-bold font-mono-tag text-[#334155] uppercase mb-2">
                   Phone / WhatsApp
                 </label>
-                <input type="text" id="client_phone" name="client_phone" placeholder="+8801..." class="form-input">
+                <input type="text" id="client_phone" name="client_phone" placeholder="+8801..." 
+                       value="<?php echo isset( $_POST['client_phone'] ) ? esc_attr( wp_unslash( $_POST['client_phone'] ) ) : ''; ?>" 
+                       class="form-input">
               </div>
 
               <div>
@@ -194,12 +197,12 @@ else :
                   Primary Capability Needed
                 </label>
                 <select id="service_interest" name="service_interest" class="form-select">
-                  <option value="Custom ERP &amp; Inventory">Custom ERP &amp; Inventory Platform</option>
-                  <option value="WordPress &amp; PageSpeed">WordPress / WooCommerce Speed &amp; Block Theme</option>
-                  <option value="Shopify Plus">Shopify Plus &amp; Headless Commerce</option>
-                  <option value="Mobile App Development">Mobile App (Flutter / React Native)</option>
-                  <option value="Sales Development &amp; SEO">Sales Funnels &amp; Technical SEO</option>
-                  <option value="Other Architecture">Other Custom Engineering</option>
+                  <option value="Custom ERP &amp; Inventory" <?php selected( isset( $_POST['service_interest'] ) ? $_POST['service_interest'] : '', 'Custom ERP & Inventory' ); ?>>Custom ERP &amp; Inventory Platform</option>
+                  <option value="WordPress &amp; PageSpeed" <?php selected( isset( $_POST['service_interest'] ) ? $_POST['service_interest'] : '', 'WordPress & PageSpeed' ); ?>>WordPress / WooCommerce Speed &amp; Block Theme</option>
+                  <option value="Shopify Plus" <?php selected( isset( $_POST['service_interest'] ) ? $_POST['service_interest'] : '', 'Shopify Plus' ); ?>>Shopify Plus &amp; Headless Commerce</option>
+                  <option value="Mobile App Development" <?php selected( isset( $_POST['service_interest'] ) ? $_POST['service_interest'] : '', 'Mobile App Development' ); ?>>Mobile App (Flutter / React Native)</option>
+                  <option value="Sales Development &amp; SEO" <?php selected( isset( $_POST['service_interest'] ) ? $_POST['service_interest'] : '', 'Sales Development & SEO' ); ?>>Sales Funnels &amp; Technical SEO</option>
+                  <option value="Other Architecture" <?php selected( isset( $_POST['service_interest'] ) ? $_POST['service_interest'] : '', 'Other Architecture' ); ?>>Other Custom Engineering</option>
                 </select>
               </div>
             </div>
@@ -208,7 +211,7 @@ else :
               <label for="project_details" class="block text-xs font-bold font-mono-tag text-[#334155] uppercase mb-2">
                 Project Scope &amp; Requirements *
               </label>
-              <textarea id="project_details" name="project_details" rows="5" required placeholder="Briefly describe your business challenge, existing system, current traffic or timeline..." class="form-textarea"></textarea>
+              <textarea id="project_details" name="project_details" rows="5" required placeholder="Briefly describe your business challenge, existing system, current traffic or timeline..." class="form-textarea"><?php echo isset( $_POST['project_details'] ) ? esc_textarea( wp_unslash( $_POST['project_details'] ) ) : ''; ?></textarea>
             </div>
 
             <button type="submit" class="w-full py-4 rounded-[6px] bg-[#F59E0B] text-[#0F172A] font-bold text-base hover:bg-[#d97706] hover-lift transition-all">

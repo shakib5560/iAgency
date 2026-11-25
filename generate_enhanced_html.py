@@ -61,7 +61,7 @@ html_content = """<!DOCTYPE html>
           "@type": "ContactPoint",
           "telephone": "+8801758522846",
           "contactType": "sales",
-          "email": "rajtechbdt@gmail.com",
+          "email": "info@rajtechbd.com",
           "areaServed": "Global",
           "availableLanguage": ["English", "Bengali"]
         },
@@ -931,7 +931,7 @@ html_content = """<!DOCTYPE html>
           Whether you need a custom ERP platform, WordPress speed optimization, a Shopify Plus overhaul, or a mobile app, RajTech BD delivers with engineering precision.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="mailto:rajtechbdt@gmail.com" class="px-8 py-4 rounded-[6px] bg-[#F59E0B] text-[#0F172A] font-bold text-base hover:bg-[#d97706] hover-lift transition-all">
+          <a href="mailto:info@rajtechbd.com" class="px-8 py-4 rounded-[6px] bg-[#F59E0B] text-[#0F172A] font-bold text-base hover:bg-[#d97706] hover-lift transition-all">
             Schedule a Free Technical Consultation
           </a>
           <a href="https://wa.me/8801758522846" target="_blank" class="px-6 py-4 rounded-[6px] border border-[#1E3352] bg-[#0B1528] text-white font-bold text-base hover:border-[#F59E0B] hover-lift transition-all">
@@ -952,7 +952,7 @@ html_content = """<!DOCTYPE html>
             Specialized software engineering, sales development, and SEO agency based in Mirpur-14, Dhaka-1216, Bangladesh. Delivering mission-critical digital systems since 2018.
           </p>
           <div class="text-sm text-[#94A3B8] space-y-1.5">
-            <p><strong class="text-white">Email:</strong> rajtechbdt@gmail.com</p>
+            <p><strong class="text-white">Email:</strong> info@rajtechbd.com</p>
             <p><strong class="text-white">Phone / WhatsApp:</strong> +8801758522846</p>
             <p><strong class="text-white">Headquarters:</strong> Mirpur-14, Dhaka-1216, Bangladesh</p>
           </div>

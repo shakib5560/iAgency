@@ -90,6 +90,7 @@ rajtechbd/
 ├── page-case-studies.php               # "Case Studies" template
 ├── page-faq.php                        # "FAQ" template with accordion & JSON-LD
 ├── page-payment-system.php             # "Payment System" template (Visa, Bank Wire, bKash, Rocket, Nagad, Cheque)
+├── page-career.php                     # "Career" template with job application form & Google Drive resume option
 ├── page-contact.php                    # "Contact Us" template with inquiry form
 ├── page-privacy-policy.php             # "Privacy Policy" template for RajTech BD Ltd.
 ├── page-terms.php                      # "Terms & Conditions" template for RajTech BD Ltd.
@@ -119,7 +120,6 @@ rajtechbd/
 ## 📞 Corporate Contact Information
 - **Company**: RajTech BD Limited (Incorporated in Dhaka, Bangladesh)
 - **Primary Email**: info@rajtechbd.com
-- **Secondary Email**: rajtechbdt@gmail.com
 - **Phone / WhatsApp**: +8801758522846
 - **Headquarters**: House Kha-92/1, Kuril, Vatara, Dhaka-1229, Bangladesh (Short: Kuril, Vatara, Dhaka-1229)
 - **Team Structure**: Core Systems Leadership, Engineer Level 1 Group, and Engineering Intern Group

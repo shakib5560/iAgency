@@ -333,6 +333,7 @@ function rajtechbd_default_primary_menu() {
     echo '<li><a href="' . $portfolio_url . '">Portfolio &amp; Case Studies</a></li>';
     echo '<li><a href="' . $home_url . '#process">Engineering Blueprint</a></li>';
     echo '<li><a href="' . esc_url( home_url( '/payment-system/' ) ) . '">Payment Methods &amp; System</a></li>';
+    echo '<li><a href="' . esc_url( home_url( '/career/' ) ) . '">Careers &amp; Openings</a></li>';
     echo '</ul>';
     echo '</li>';
 
@@ -363,6 +364,7 @@ function rajtechbd_default_mobile_menu() {
     echo '<li><a href="' . $blog_url . '">Engineering Blog</a></li>';
     echo '<li><a href="' . $faq_url . '">FAQ</a></li>';
     echo '<li><a href="' . esc_url( home_url( '/payment-system/' ) ) . '">Payment Methods</a></li>';
+    echo '<li><a href="' . esc_url( home_url( '/career/' ) ) . '">Careers</a></li>';
     echo '<li><a href="' . $contact_url . '">Contact Us</a></li>';
     echo '</ul>';
 }
@@ -500,6 +502,16 @@ function rajtechbd_create_starter_pages() {
             'template' => 'page-terms.php',
             'content'  => '<!-- Terms and Conditions Page -->',
             'slug'     => 'terms-and-conditions',
+        ),
+        'Payment System' => array(
+            'template' => 'page-payment-system.php',
+            'content'  => '<!-- Handled by page-payment-system.php -->',
+            'slug'     => 'payment-system',
+        ),
+        'Career' => array(
+            'template' => 'page-career.php',
+            'content'  => '<!-- Handled by page-career.php -->',
+            'slug'     => 'career',
         ),
     );
 
@@ -661,3 +673,118 @@ function rajtechbd_create_starter_pages() {
         }
     }
 }
+
+/**
+ * Automatically ensure the Payment System page exists in WordPress
+ */
+function rajtechbd_ensure_payment_system_page() {
+    $slug = 'payment-system';
+    $page = get_page_by_path( $slug );
+    if ( ! $page ) {
+        $page_id = wp_insert_post( array(
+            'post_title'     => 'Payment System',
+            'post_name'      => $slug,
+            'post_content'   => '<!-- Handled by page-payment-system.php -->',
+            'post_status'    => 'publish',
+            'post_type'      => 'page',
+            'comment_status' => 'closed',
+        ) );
+        if ( $page_id && ! is_wp_error( $page_id ) ) {
+            update_post_meta( $page_id, '_wp_page_template', 'page-payment-system.php' );
+        }
+    } else {
+        $current_template = get_post_meta( $page->ID, '_wp_page_template', true );
+        if ( 'page-payment-system.php' !== $current_template ) {
+            update_post_meta( $page->ID, '_wp_page_template', 'page-payment-system.php' );
+        }
+    }
+}
+add_action( 'init', 'rajtechbd_ensure_payment_system_page' );
+add_action( 'after_switch_theme', 'rajtechbd_ensure_payment_system_page' );
+
+/**
+ * Automatically ensure the Career page exists in WordPress
+ */
+function rajtechbd_ensure_career_page() {
+    $slug = 'career';
+    $page = get_page_by_path( $slug );
+    if ( ! $page ) {
+        $page_id = wp_insert_post( array(
+            'post_title'     => 'Career',
+            'post_name'      => $slug,
+            'post_content'   => '<!-- Handled by page-career.php -->',
+            'post_status'    => 'publish',
+            'post_type'      => 'page',
+            'comment_status' => 'closed',
+        ) );
+        if ( $page_id && ! is_wp_error( $page_id ) ) {
+            update_post_meta( $page_id, '_wp_page_template', 'page-career.php' );
+        }
+    } else {
+        $current_template = get_post_meta( $page->ID, '_wp_page_template', true );
+        if ( 'page-career.php' !== $current_template ) {
+            update_post_meta( $page->ID, '_wp_page_template', 'page-career.php' );
+        }
+    }
+}
+add_action( 'init', 'rajtechbd_ensure_career_page' );
+add_action( 'after_switch_theme', 'rajtechbd_ensure_career_page' );
+
+/**
+ * Universal Route Fallback: If requested URL path is /payment-system/ or /career/ and 404 is triggered, load appropriate template
+ */
+function rajtechbd_payment_system_template_redirect( $template ) {
+    if ( is_404() ) {
+        $req_uri = isset( $_SERVER['REQUEST_URI'] ) ? trim( parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ), '/' ) : '';
+        if ( 'payment-system' === $req_uri || 'payment' === $req_uri ) {
+            global $wp_query;
+            if ( is_object( $wp_query ) ) {
+                $wp_query->is_404 = false;
+            }
+            status_header( 200 );
+            $custom_template = locate_template( array( 'page-payment-system.php' ) );
+            if ( $custom_template ) {
+                return $custom_template;
+            }
+        } elseif ( 'career' === $req_uri || 'careers' === $req_uri ) {
+            global $wp_query;
+            if ( is_object( $wp_query ) ) {
+                $wp_query->is_404 = false;
+            }
+            status_header( 200 );
+            $custom_template = locate_template( array( 'page-career.php' ) );
+            if ( $custom_template ) {
+                return $custom_template;
+            }
+        } elseif ( 'contact' === $req_uri || 'contact-us' === $req_uri ) {
+            global $wp_query;
+            if ( is_object( $wp_query ) ) {
+                $wp_query->is_404 = false;
+            }
+            status_header( 200 );
+            $custom_template = locate_template( array( 'page-contact.php' ) );
+            if ( $custom_template ) {
+                return $custom_template;
+            }
+        }
+    }
+    return $template;
+}
+add_filter( 'template_include', 'rajtechbd_payment_system_template_redirect', 99 );
+
+/**
+ * Career Applications Database & Admin Management System
+ */
+if ( file_exists( get_template_directory() . '/inc/career-applications.php' ) ) {
+    require_once get_template_directory() . '/inc/career-applications.php';
+}
+
+/**
+ * Technical Discovery Inquiries Database & CRM Pipeline System
+ */
+if ( file_exists( get_template_directory() . '/inc/discovery-inquiries.php' ) ) {
+    require_once get_template_directory() . '/inc/discovery-inquiries.php';
+}
+
+
+
